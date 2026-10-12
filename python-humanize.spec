@@ -1,6 +1,6 @@
 Name:		python-humanize
 Version:	4.16.0
-Release:	1
+Release:	2
 Source0:	https://files.pythonhosted.org/packages/source/h/humanize/humanize-%{version}.tar.gz
 Summary:	Python humanize utilities
 URL:		https://pypi.org/project/humanize/
@@ -14,6 +14,10 @@ BuildArch:	noarch
 
 %description
 Python humanize utilities
+
+%build -p
+# The sdist is not a git checkout, so the versioning backend needs the version.
+export SETUPTOOLS_SCM_PRETEND_VERSION=%{version}
 
 %files
 %{py_sitedir}/humanize
